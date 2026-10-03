@@ -40,7 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     }).filter((item) => item.name && item.image);
 
-  const oatItems = readItems(columns[0], oatPhotos, 'Oat bowl');
+  const featuredOatNames = [
+    'Eton Mess',
+    'Sticky Mango',
+    'Speckled Egg Bowl',
+    'Raspberry & White Chocolate Cheesecake',
+    'The Nutty One',
+  ];
+  const oatItems = readItems(columns[0], oatPhotos, 'Oat bowl').sort((a, b) => {
+    const aIndex = featuredOatNames.indexOf(a.name);
+    const bIndex = featuredOatNames.indexOf(b.name);
+    if (aIndex === -1 && bIndex === -1) return 0;
+    if (aIndex === -1) return 1;
+    if (bIndex === -1) return -1;
+    return aIndex - bIndex;
+  });
   const matchaItems = readItems(columns[1], matchaPhotos, 'Matcha');
 
   const dialog = document.createElement('dialog');
@@ -162,4 +176,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   dialog.addEventListener('close', () => opener?.focus());
 });
-
