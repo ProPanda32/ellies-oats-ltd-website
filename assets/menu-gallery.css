@@ -9,6 +9,10 @@
   border-top: 1px solid #dfe8dc;
 }
 
+footer.bg-brand-footer {
+  background: #e7e1c9;
+}
+
 .menu-gallery-ready > .container {
   max-width: 1240px;
 }
