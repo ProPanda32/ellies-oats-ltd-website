@@ -1,7 +1,12 @@
 .menu-section.menu-gallery-ready {
   background: #fff;
-  padding: 72px 0 96px;
+  padding: 72px 0 104px;
   scroll-margin-top: 130px;
+}
+
+.menu-section.menu-matcha-section {
+  background: #f3f7f0;
+  border-top: 1px solid #dfe8dc;
 }
 
 .menu-gallery-ready > .container {
@@ -14,29 +19,55 @@
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.1;
-  margin: 0 0 52px;
+  margin: 0 0 38px;
   text-align: left;
 }
 
-.menu-gallery-group + .menu-gallery-group {
-  margin-top: 72px;
+.menu-category-nav {
+  display: flex;
+  gap: 26px;
+  margin-bottom: 32px;
 }
 
-.menu-gallery-heading {
-  border-bottom: 1px solid #d9ded2;
-  color: #304332;
-  font-size: 1.4rem;
+.menu-category-nav a {
+  border-bottom: 2px solid transparent;
+  color: #466149;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.2;
-  margin: 0 0 24px;
-  padding-bottom: 14px;
+  padding-bottom: 7px;
+  text-decoration: none;
+}
+
+.menu-category-nav a:hover,
+.menu-category-nav a[aria-current="location"] {
+  border-color: #355a38;
+  color: #253b29;
+}
+
+.menu-category-nav a:focus-visible {
+  outline: 3px solid #476844;
+  outline-offset: 4px;
 }
 
 .menu-gallery-grid {
   display: grid;
-  gap: 22px;
+  column-gap: 38px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 58px;
+}
+
+.menu-gallery-card {
+  min-width: 0;
+}
+
+.menu-gallery-name {
+  color: #252d22;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.16;
+  margin: 16px 0 0;
+  overflow-wrap: break-word;
 }
 
 .menu-photo {
@@ -205,16 +236,13 @@ body:has(.menu-detail-dialog[open]) {
   }
 
   .menu-gallery-grid {
-    gap: 12px;
+    column-gap: 20px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 38px;
   }
 
   .menu-gallery-title {
-    margin-bottom: 38px;
-  }
-
-  .menu-gallery-group + .menu-gallery-group {
-    margin-top: 56px;
+    margin-bottom: 30px;
   }
 
   .menu-detail-layout {
@@ -235,6 +263,29 @@ body:has(.menu-detail-dialog[open]) {
   .menu-detail-close {
     right: 16px;
     top: 8px;
+  }
+}
+
+@media (max-width: 460px) {
+  .menu-section.menu-gallery-ready {
+    padding: 54px 0 72px;
+  }
+
+  .menu-gallery-grid {
+    column-gap: 14px;
+    row-gap: 32px;
+  }
+
+  .menu-gallery-name {
+    font-size: 1.1rem;
+    margin-top: 12px;
+  }
+
+  .menu-photo-open {
+    height: 32px;
+    right: 8px;
+    top: 8px;
+    width: 32px;
   }
 }
 
