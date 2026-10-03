@@ -1,11 +1,11 @@
 .menu-section.menu-gallery-ready {
   background: #f3f7f0;
-  padding: 72px 0 104px;
+  padding: 56px 0 72px;
   scroll-margin-top: 130px;
 }
 
 .menu-section.menu-matcha-section {
-  background: #f3f7f0;
+  background: #e6f8d1;
   border-top: 1px solid #dfe8dc;
 }
 
@@ -76,8 +76,8 @@ footer.bg-brand-footer {
 
 .menu-photo {
   aspect-ratio: 1;
-  background: #f3f3f0;
-  border: 1px solid #e8eae5;
+  background: #f3f7f0;
+  border: 1px solid transparent;
   border-radius: 6px;
   cursor: pointer;
   display: block;
@@ -86,8 +86,13 @@ footer.bg-brand-footer {
   width: 100%;
 }
 
+.menu-matcha-section .menu-photo {
+  background: #e6f8d1;
+}
+
 .menu-photo img {
   height: 100%;
+  mix-blend-mode: multiply;
   object-fit: cover;
   object-position: center;
   transition: transform 220ms ease;
@@ -272,7 +277,7 @@ body:has(.menu-detail-dialog[open]) {
 
 @media (max-width: 460px) {
   .menu-section.menu-gallery-ready {
-    padding: 54px 0 72px;
+    padding: 44px 0 56px;
   }
 
   .menu-gallery-grid {
