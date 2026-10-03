@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   next.addEventListener('click', () => gallery.scrollBy({ left: step(), behavior: 'smooth' }));
   gallery.addEventListener('scroll', updateControls, { passive: true });
   window.addEventListener('resize', updateControls);
+  new ResizeObserver(updateControls).observe(gallery);
   gallery.addEventListener('keydown', (event) => {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
@@ -71,5 +72,5 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   gallery.addEventListener('pointerup', stopDragging);
   gallery.addEventListener('pointercancel', stopDragging);
-  updateControls();
+  requestAnimationFrame(updateControls);
 });
