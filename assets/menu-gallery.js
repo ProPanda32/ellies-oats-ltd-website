@@ -161,12 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .find((link) => link.textContent.trim() === 'Menu');
   if (mainMenuLink) {
     mainMenuLink.href = `${window.location.href.split('#')[0]}#menu`;
-    const specialsLink = document.createElement('a');
-    specialsLink.href = `${window.location.href.split('#')[0]}#limited-time-specials`;
-    specialsLink.className = mainMenuLink.className;
-    specialsLink.textContent = 'Limited Time Specials';
+    const matchaLink = document.createElement('a');
+    matchaLink.href = `${window.location.href.split('#')[0]}#matcha-menu`;
+    matchaLink.className = mainMenuLink.className;
+    matchaLink.textContent = 'Matcha';
     const item = document.createElement('li');
-    item.append(specialsLink);
+    item.append(matchaLink);
     mainMenuLink.closest('li')?.insertAdjacentElement('afterend', item);
   }
 
