@@ -5,7 +5,8 @@
 }
 
 .menu-section.menu-matcha-section {
-  background: #e6f8d1;
+  --matcha-gallery-bg: #e7eedc;
+  background: var(--matcha-gallery-bg);
   border-top: 1px solid #dfe8dc;
 }
 
@@ -87,7 +88,7 @@ footer.bg-brand-footer {
 }
 
 .menu-matcha-section .menu-photo {
-  background: #e6f8d1;
+  background: var(--matcha-gallery-bg);
 }
 
 .menu-photo img {
