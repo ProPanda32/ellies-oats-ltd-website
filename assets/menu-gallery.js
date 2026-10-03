@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.setAttribute('aria-label', 'Menu categories');
     [['Oat bowls', '#menu'], ['Matcha', '#matcha-menu']].forEach(([label, href]) => {
       const link = document.createElement('a');
-      link.href = href;
+      link.href = `${window.location.href.split('#')[0]}${href}`;
       link.textContent = label;
       if (label === current) link.setAttribute('aria-current', 'location');
       nav.append(link);
@@ -143,10 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
   menu.insertAdjacentElement('afterend', matcha);
   document.body.append(dialog);
 
-  const mainMenuLink = document.querySelector('header nav a[href="index.html#menu"]');
+  const mainMenuLink = [...document.querySelectorAll('header nav a')]
+    .find((link) => link.textContent.trim() === 'Menu');
   if (mainMenuLink) {
+    mainMenuLink.href = `${window.location.href.split('#')[0]}#menu`;
     const matchaLink = document.createElement('a');
-    matchaLink.href = 'index.html#matcha-menu';
+    matchaLink.href = `${window.location.href.split('#')[0]}#matcha-menu`;
     matchaLink.className = mainMenuLink.className;
     matchaLink.textContent = 'Matcha';
     const item = document.createElement('li');
