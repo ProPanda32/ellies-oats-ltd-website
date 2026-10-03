@@ -1,0 +1,240 @@
+.menu-section.menu-gallery-ready {
+  background: #fff;
+  padding: 72px 0 96px;
+}
+
+.menu-gallery-ready > .container {
+  max-width: 1240px;
+}
+
+.menu-gallery-title {
+  color: #252d22;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.1;
+  margin: 0 0 52px;
+  text-align: left;
+}
+
+.menu-gallery-group + .menu-gallery-group {
+  margin-top: 72px;
+}
+
+.menu-gallery-heading {
+  border-bottom: 1px solid #d9ded2;
+  color: #304332;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0 0 24px;
+  padding-bottom: 14px;
+}
+
+.menu-gallery-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.menu-photo {
+  aspect-ratio: 1;
+  background: #f3f3f0;
+  border: 1px solid #e8eae5;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.menu-photo img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 220ms ease;
+  width: 100%;
+}
+
+.menu-photo:hover img,
+.menu-photo:focus-visible img {
+  transform: scale(1.035);
+}
+
+.menu-photo:focus-visible,
+.menu-detail-close:focus-visible,
+.menu-detail-order:focus-visible {
+  outline: 3px solid #476844;
+  outline-offset: 3px;
+}
+
+.menu-photo-open {
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px #0002;
+  color: #213628;
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  height: 38px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 38px;
+}
+
+.menu-detail-dialog {
+  background: #fff;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px #17241944;
+  color: #253126;
+  margin: auto;
+  max-height: min(760px, calc(100dvh - 32px));
+  max-width: min(860px, calc(100vw - 32px));
+  overflow: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.menu-detail-dialog::backdrop {
+  background: #172419aa;
+}
+
+body:has(.menu-detail-dialog[open]) {
+  overflow: hidden;
+}
+
+.menu-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 450px;
+}
+
+.menu-detail-image {
+  height: 100%;
+  max-height: 640px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.menu-detail-content {
+  align-self: center;
+  padding: 60px 38px 44px;
+  position: relative;
+}
+
+.menu-detail-close {
+  align-items: center;
+  background: #f1f3ed;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 1.6rem;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  right: 24px;
+  top: 18px;
+  width: 40px;
+}
+
+.menu-detail-category {
+  color: #5c7457;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.menu-detail-content h3 {
+  color: #253126;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.menu-detail-description {
+  color: #4b554a;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 20px 0 0;
+}
+
+.menu-detail-nutrition {
+  border-top: 1px solid #e0e5da;
+  color: #596258;
+  font-size: .86rem;
+  line-height: 1.5;
+  margin: 24px 0 0;
+  padding-top: 18px;
+}
+
+.menu-detail-order {
+  background: #355a38;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  font-size: .95rem;
+  font-weight: 700;
+  margin-top: 28px;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.menu-detail-order:hover {
+  background: #29472c;
+}
+
+@media (max-width: 720px) {
+  .menu-gallery-grid {
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-gallery-title {
+    margin-bottom: 38px;
+  }
+
+  .menu-gallery-group + .menu-gallery-group {
+    margin-top: 56px;
+  }
+
+  .menu-detail-layout {
+    display: block;
+    min-height: 0;
+  }
+
+  .menu-detail-image {
+    aspect-ratio: 1.35;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .menu-detail-content {
+    padding: 56px 24px 28px;
+  }
+
+  .menu-detail-close {
+    right: 16px;
+    top: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-photo img {
+    transition: none;
+  }
+}
+
