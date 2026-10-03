@@ -40,10 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     }).filter((item) => item.name && item.image);
 
-  const groups = [
-    { title: 'Oat bowls', items: readItems(columns[0], oatPhotos, 'Oat bowl') },
-    { title: 'Matcha', items: readItems(columns[1], matchaPhotos, 'Matcha') },
-  ];
+  const oatItems = readItems(columns[0], oatPhotos, 'Oat bowl');
+  const matchaItems = readItems(columns[1], matchaPhotos, 'Matcha');
 
   const dialog = document.createElement('dialog');
   dialog.className = 'menu-detail-dialog';
@@ -80,16 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
     dialog.showModal();
   }
 
-  function makeGroup(group) {
-    const section = document.createElement('section');
-    section.className = 'menu-gallery-group';
-    const heading = document.createElement('h3');
-    heading.className = 'menu-gallery-heading';
-    heading.textContent = group.title;
+  function makeGrid(items) {
     const grid = document.createElement('div');
     grid.className = 'menu-gallery-grid';
 
-    group.items.forEach((item) => {
+    items.forEach((item) => {
+      const card = document.createElement('article');
+      card.className = 'menu-gallery-card';
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'menu-photo';
@@ -105,18 +100,59 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.textContent = '+';
       button.append(photo, icon);
       button.addEventListener('click', () => showDetails(item, button));
-      grid.append(button);
+      const name = document.createElement('h3');
+      name.className = 'menu-gallery-name';
+      name.textContent = item.name;
+      card.append(button, name);
+      grid.append(card);
     });
 
-    section.append(heading, grid);
-    return section;
+    return grid;
+  }
+
+  function makeCategoryNav(current) {
+    const nav = document.createElement('nav');
+    nav.className = 'menu-category-nav';
+    nav.setAttribute('aria-label', 'Menu categories');
+    [['Oat bowls', '#menu'], ['Matcha', '#matcha-menu']].forEach(([label, href]) => {
+      const link = document.createElement('a');
+      link.href = href;
+      link.textContent = label;
+      if (label === current) link.setAttribute('aria-current', 'location');
+      nav.append(link);
+    });
+    return nav;
   }
 
   const title = container.querySelector('h2');
   title.className = 'menu-gallery-title';
-  container.replaceChildren(title, ...groups.map(makeGroup));
+  title.textContent = 'Oat bowls';
+  container.replaceChildren(makeCategoryNav('Oat bowls'), title, makeGrid(oatItems));
   menu.classList.add('menu-gallery-ready');
-  menu.append(dialog);
+
+  const matcha = document.createElement('section');
+  matcha.id = 'matcha-menu';
+  matcha.className = 'menu-section menu-gallery-ready menu-matcha-section';
+  const matchaContainer = document.createElement('div');
+  matchaContainer.className = container.className;
+  const matchaTitle = document.createElement('h2');
+  matchaTitle.className = 'menu-gallery-title';
+  matchaTitle.textContent = 'Matcha';
+  matchaContainer.append(makeCategoryNav('Matcha'), matchaTitle, makeGrid(matchaItems));
+  matcha.append(matchaContainer);
+  menu.insertAdjacentElement('afterend', matcha);
+  document.body.append(dialog);
+
+  const mainMenuLink = document.querySelector('header nav a[href="index.html#menu"]');
+  if (mainMenuLink) {
+    const matchaLink = document.createElement('a');
+    matchaLink.href = 'index.html#matcha-menu';
+    matchaLink.className = mainMenuLink.className;
+    matchaLink.textContent = 'Matcha';
+    const item = document.createElement('li');
+    item.append(matchaLink);
+    mainMenuLink.closest('li')?.insertAdjacentElement('afterend', item);
+  }
 
   dialog.querySelector('.menu-detail-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', (event) => {
