@@ -168,7 +168,6 @@ footer.bg-brand-footer {
 
 .menu-photo img {
   height: 100%;
-  mix-blend-mode: multiply;
   object-fit: cover;
   object-position: center;
   transition: transform 220ms ease;
