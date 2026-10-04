@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'oat-sticky-mango.jpg',
     'oat-speckled-egg.jpg',
     'oat-raspberry-white-chocolate.jpg',
+    'oat-build-your-own.jpg',
+    'oat-bites.jpg',
   ];
   const matchaPhotos = [
     'matcha-blueberry-muffin.jpg',
