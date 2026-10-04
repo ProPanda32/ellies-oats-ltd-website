@@ -17,3 +17,14 @@ header a[class] {
     scroll-margin-top: 110px;
   }
 }
+
+header nav a {
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+header nav ul {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 10px;
+}
