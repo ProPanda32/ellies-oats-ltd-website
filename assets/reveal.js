@@ -7,12 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     '.special-card-image img, .oat-bowls-banner img, .menu-gallery-card .menu-photo img'
   )];
 
-  document.querySelectorAll('.menu-gallery-grid').forEach((grid) => {
-    grid.querySelectorAll('.menu-gallery-card').forEach((card, index) => {
-      card.style.setProperty('--reveal-delay', `${index % 3 * 110}ms`);
-    });
-  });
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
