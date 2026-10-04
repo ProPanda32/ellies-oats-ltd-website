@@ -13,6 +13,24 @@
     transition: opacity 750ms ease, transform 220ms ease;
   }
 
+  .menu-gallery-card .reveal-title {
+    transition-duration: 800ms;
+  }
+
+  .menu-gallery-card .reveal-image {
+    transition-duration: 950ms, 220ms;
+  }
+
+  @media (min-width: 768px) {
+    .menu-gallery-card .reveal-title {
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .menu-gallery-card .reveal-image {
+      transition-delay: var(--reveal-delay, 0ms), 0ms;
+    }
+  }
+
   .reveal-title.is-visible,
   .reveal-image.is-visible {
     opacity: 1;
