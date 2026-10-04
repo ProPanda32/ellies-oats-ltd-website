@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'oat-apple-of-my-eye.jpg',
     'oat-jam-dodger.jpg',
     'oat-lemon-white-chocolate.jpg',
-    'oat-nutty-one.png',
+    'oat-nutty-one-matched.png',
     'oat-eton-mess.png',
     'oat-sticky-mango.png',
     'oat-speckled-egg.png',
-    'oat-raspberry-white-chocolate.png',
+    'oat-raspberry-white-chocolate-matched.png',
     'oat-build-your-own.jpg',
     'oat-bites.jpg',
   ];
