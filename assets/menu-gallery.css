@@ -55,7 +55,8 @@
   border-radius: 6px;
   display: block;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   pointer-events: none;
   width: 100%;
 }
