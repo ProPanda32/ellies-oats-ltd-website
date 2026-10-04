@@ -10,7 +10,11 @@
   }
 
   .reveal-image {
-    transition: opacity 750ms ease, transform 220ms ease;
+    transition: transform 220ms ease;
+  }
+
+  .reveal-image.is-visible {
+    animation: image-fade-in 1300ms ease-out both;
   }
 
   .reveal-title.is-visible,
@@ -20,5 +24,10 @@
 
   .reveal-title.is-visible {
     transform: translateY(0);
+  }
+
+  @keyframes image-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
